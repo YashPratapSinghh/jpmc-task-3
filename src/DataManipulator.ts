@@ -3,7 +3,8 @@ import {ServerRespond} from './DataStreamer';
 export interface Row {
     price_abc: number,
     price_def: number,
-    ratio: number,
+    ratio: number, 
+    
     timestamp: Date,
     upper_bound: number,
     lower_bound: number,
@@ -24,7 +25,8 @@ export class DataManipulator {
             ratio,
             timestamp: serverRespond[0].timestamp > serverRespond[1].timestamp ?
                 serverRespond[0].timestamp : serverRespond[1].timestamp,
-            upper_bound: upperBound,
+            upper_bound: upperBound,  
+            
             lower_bound: lowerBound,
             trigger_alert: (ratio > upperBound || ratio < lowerBound) ? ratio : undefined,
         };
